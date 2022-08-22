@@ -1,0 +1,50 @@
+.container {
+}
+
+.container .modal-container {
+  display: none;
+}
+
+.container .modal-container.open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container .modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(8, 8, 8);
+  opacity: 0.8;
+}
+
+.modal-container .modal-drawer {
+  z-index: 2;
+  width: 500px;
+  height: 350px;
+  background-color: rgb(255, 255, 255);
+}
+
+.modal-drawer .content {
+  height: 80%;
+}
+
+.modal-drawer .button-wrap {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-wrap .btn {
+  margin: 0px 10px;
+  width: 100px;
+}
