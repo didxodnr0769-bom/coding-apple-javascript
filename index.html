@@ -19,14 +19,8 @@
         const modal = document.querySelector(".modal-container");
         modal.classList.toggle("open");
       }
-
-      /** 로그인 요청 */
-      function requestLogin(e) {
-        const id = document.getElementById("id").value;
-        const name = document.getElementById("name").value;
-        if (id === "") {
-          alert("아이디가 공백입니다");
-        }
+      function submitTest(e) {
+        console.log("test ", e);
       }
     </script>
     <title>Document</title>
@@ -47,7 +41,7 @@
       <div class="modal-container open">
         <div class="modal-background"></div>
         <div class="modal-drawer">
-          <form>
+          <form action="test.html">
             <div class="content">
               <div>
                 <input id="id" type="text" placeholder="id" />
@@ -57,13 +51,7 @@
               </div>
             </div>
             <div class="button-wrap">
-              <button
-                type="button"
-                onclick="requestLogin()"
-                class="btn btn-primary"
-              >
-                로그인
-              </button>
+              <button type="submit" class="btn btn-primary">로그인</button>
               <button
                 type="button"
                 class="btn btn-primary"
@@ -76,5 +64,21 @@
         </div>
       </div>
     </div>
+    <script>
+      document.querySelector("form").addEventListener("submit", (e) => {
+        const email = document.getElementById("id").value;
+        const name = document.getElementById("name").value;
+        if (email === "") {
+          e.preventDefault();
+          alert("아이디입력필요");
+        } else if (name === "") {
+          e.preventDefault();
+          alert("이름 입력필요");
+        } else if (name.length < 7) {
+          e.preventDefault();
+          alert("이름은 6자 이상 입력해주세요");
+        }
+      });
+    </script>
   </body>
 </html>
