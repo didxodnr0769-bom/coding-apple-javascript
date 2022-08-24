@@ -1,4 +1,6 @@
-.container {
+body.dark {
+  background-color: black;
+  color: white;
 }
 
 .container .modal-container {

@@ -27,7 +27,15 @@
   </head>
   <body>
     <div class="container">
-      <div class="nav">Nav</div>
+      <div class="navbar navbar-lignt bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">JSShop</span>
+          <span class="badge bg-dark">Dark</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
       <div class="contents">
         <button
           id="modal-open"
@@ -38,7 +46,9 @@
           로그인하기!
         </button>
       </div>
-      <div class="modal-container open">
+      안녕하세요 여기는 다크모드 <br />
+      테스트용 문구들입니다. 감사합니다.
+      <div class="modal-container">
         <div class="modal-background"></div>
         <div class="modal-drawer">
           <form action="test.html">
@@ -64,7 +74,34 @@
         </div>
       </div>
     </div>
+
     <script>
+      var count = 0;
+
+      // Dark Mode  뱃지 클릭 이벤트 리스너
+      document.querySelector(".badge").addEventListener("click", () => {
+        // 다크 -> 화이트
+        if (count % 2 === 1) {
+          document.querySelector(".badge").innerHTML = "Dark";
+          document.querySelector(".navbar").classList.add("navbar-light");
+          document.querySelector(".navbar").classList.add("bg-light");
+          document.querySelector(".navbar").classList.remove("navbar-dark");
+          document.querySelector(".navbar").classList.remove("bg-dark");
+          document.body.classList.remove("dark");
+        }
+        // 화이트 -> 다크
+        else {
+          document.querySelector(".badge").innerHTML = "White";
+          document.querySelector(".navbar").classList.add("navbar-dark");
+          document.querySelector(".navbar").classList.add("bg-dark");
+          document.querySelector(".navbar").classList.remove("navbar-light");
+          document.querySelector(".navbar").classList.remove("bg-light");
+          document.body.classList.add("dark");
+        }
+
+        count++;
+      });
+
       document.querySelector("form").addEventListener("submit", (e) => {
         const email = document.getElementById("id").value;
         const name = document.getElementById("name").value;
